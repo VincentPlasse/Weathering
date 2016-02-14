@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="Weathering.UserControls.UC_WeatherListItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Weathering.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="150">
+
+    <Grid Style="{StaticResource UC_WeathrListItem_Grid}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Source="{Binding WeatherTypeId, Converter={StaticResource IconSelectorService}}" />
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Style="{StaticResource UC_WeatherListItem_Large_TextBlock}" Text="{Binding FormatedDay}" />
+                <TextBlock Grid.Column="1" Style="{StaticResource UC_WeatherListItem_Large_TextBlock}" Text="{Binding WeatherType}" />
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Style="{StaticResource UC_WeatherListItem_Large_TextBlock}" Text="{Binding Source=UC_WeatherListItem.Temperature, Converter={StaticResource LocalizationService}}" />
+                <TextBlock Style="{StaticResource UC_WeatherListItem_Large_TextBlock}" Text="{Binding CelciusTemperatue}" />
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding Source=UC_WeatherListItem.Min, Converter={StaticResource LocalizationService}}" />
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding CelciusMinTemperatue}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="1">
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding Source=UC_WeatherListItem.Max, Converter={StaticResource LocalizationService}}" />
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding CelciusMaxTemperatue}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding Source=UC_WeatherListItem.Pressure, Converter={StaticResource LocalizationService}}" />
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding Pressure}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Visibility="{Binding HumidityVisibility}" >
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding Source=UC_WeatherListItem.Humidity, Converter={StaticResource LocalizationService}}" />
+                    <TextBlock Style="{StaticResource UC_WeatherListItem_Medium_TextBlock}" Text="{Binding PercentageHumidity}" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

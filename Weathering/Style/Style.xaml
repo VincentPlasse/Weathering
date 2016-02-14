@@ -1,0 +1,51 @@
+﻿<ResourceDictionary
+    x:Class="Weathering.Style"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Weathering"
+    >
+    <SolidColorBrush x:Key="UC_Background" Color="#666666" />
+    <SolidColorBrush x:Key="Application_Background" Color="#333333" />
+    <SolidColorBrush x:Key="Default_Font_Color" Color="#ffffff" />
+    <Style x:Key="UC_Style" TargetType="UserControl">
+        <Setter Property="Margin" Value="5,10,5,10" />
+        <Setter Property="Background" Value="{StaticResource UC_Background}" />
+        <Setter Property="Foreground" Value="{StaticResource Default_Font_Color}" />
+        <Setter Property="Height" Value="200" />
+        <Setter Property="FontSize" Value="26" />
+    </Style>
+    <Style x:Key="Application_Style" TargetType="Grid">
+    </Style>
+    <Style x:Key="Search_Button" TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource Default_Font_Color}" />
+        <Setter Property="Background" Value="{StaticResource UC_Background}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="#ffffff" />
+    </Style>
+    <Style x:Key="Search_TextBox" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource Default_Font_Color}" />
+        <Setter Property="Background" Value="{StaticResource UC_Background}" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="AcceptsReturn" Value="False" />
+        <Setter Property="IsSpellCheckEnabled" Value="False" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="BorderBrush" Value="#ffffff" />
+    </Style>
+    <Style x:Key="UC_WeatherListItem_Large_TextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Default_Font_Color}" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+    <Style x:Key="UC_WeatherListItem_Medium_TextBlock" BasedOn="{StaticResource UC_WeatherListItem_Large_TextBlock}" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style x:Key="UC_WeathrListItem_Grid" TargetType="Grid">
+        <Setter Property="Background" Value="{StaticResource UC_Background}" />
+        <Setter Property="Padding" Value="0,10,0,10" />
+    </Style>
+
+</ResourceDictionary>
